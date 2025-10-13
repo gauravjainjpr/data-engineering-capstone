@@ -1,0 +1,26 @@
+{
+  "dataset_shape": [
+    541909,
+    13
+  ],
+  "total_records": 541909,
+  "date_range": [
+    "2010-12-01 08:26:00",
+    "2011-12-09 12:50:00"
+  ],
+  "total_revenue": 9747747.934,
+  "unique_customers": 4372,
+  "unique_products": 4070,
+  "countries": 38,
+  "data_quality_issues": 4,
+  "missing_values": {
+    "InvoiceNo": 0,
+    "StockCode": 0,
+    "Description": 1454,
+    "Quantity": 0,
+    "InvoiceDate": 0,
+    "UnitPrice": 0,
+    "CustomerID": 135080,
+    "Country": 0
+  }
+}

@@ -1,0 +1,12 @@
+UCI Online Retail II Dataset Metadata
+==================================================
+
+Download Date: 2025-10-13 16:54:25.139848
+Source: UCI ML Repository (ID: 502)
+Shape: (541909, 8)
+Columns: ['InvoiceNo', 'StockCode', 'Description', 'Quantity', 'InvoiceDate', 'UnitPrice', 'CustomerID', 'Country']
+
+Dataset Description:
+
+
+Variable Information:
