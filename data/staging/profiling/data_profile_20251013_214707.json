@@ -1,0 +1,324 @@
+{
+  "profile_timestamp": "2025-10-13T21:47:06.758970",
+  "dataset_overview": {
+    "total_records": 100000,
+    "total_columns": 10,
+    "memory_usage_mb": 39.05466175079346,
+    "date_range": {
+      "min_date": "2011-11-03T14:17:00",
+      "max_date": "2011-12-09T12:50:00",
+      "date_span_days": 35
+    },
+    "unique_counts": {
+      "invoices": 4078,
+      "products": 3005,
+      "customers": 1855,
+      "countries": 27
+    },
+    "data_freshness": {
+      "latest_load": "2025-10-13T20:58:26.276072",
+      "oldest_load": "2025-10-13T20:58:26.276072"
+    }
+  },
+  "column_profiles": {
+    "invoice": {
+      "data_type": "object",
+      "non_null_count": "100000",
+      "null_count": "0",
+      "null_percentage": 0.0,
+      "unique_count": 4078,
+      "unique_percentage": 4.077999999999999,
+      "avg_length": 6.01307,
+      "min_length": "6",
+      "max_length": "7",
+      "empty_string_count": "0",
+      "whitespace_only_count": "0",
+      "top_values": {
+        "581219": 749,
+        "581492": 731,
+        "580729": 721,
+        "579777": 687,
+        "581217": 676,
+        "580730": 662,
+        "580367": 650,
+        "580115": 645,
+        "581439": 635,
+        "580983": 629
+      },
+      "has_leading_trailing_spaces": "0",
+      "has_special_characters": "0"
+    },
+    "stock_code": {
+      "data_type": "object",
+      "non_null_count": "100000",
+      "null_count": "0",
+      "null_percentage": 0.0,
+      "unique_count": 3005,
+      "unique_percentage": 3.005,
+      "avg_length": 5.06687,
+      "min_length": "1",
+      "max_length": "12",
+      "empty_string_count": "0",
+      "whitespace_only_count": "0",
+      "top_values": {
+        "23084": 582,
+        "22086": 486,
+        "23355": 359,
+        "22910": 345,
+        "23344": 314,
+        "22197": 307,
+        "85123A": 303,
+        "22865": 293,
+        "85099B": 288,
+        "23301": 283
+      },
+      "has_leading_trailing_spaces": "0",
+      "has_special_characters": "0"
+    },
+    "description": {
+      "data_type": "object",
+      "non_null_count": "99916",
+      "null_count": "84",
+      "null_percentage": 0.084,
+      "unique_count": 3007,
+      "unique_percentage": 3.007,
+      "avg_length": 26.95118899875896,
+      "min_length": 2.0,
+      "max_length": 35.0,
+      "empty_string_count": "0",
+      "whitespace_only_count": "0",
+      "top_values": {
+        "RABBIT NIGHT LIGHT": 582,
+        "PAPER CHAIN KIT 50'S CHRISTMAS ": 486,
+        "HOT WATER BOTTLE KEEP CALM": 359,
+        "PAPER CHAIN KIT VINTAGE CHRISTMAS": 345,
+        "JUMBO BAG 50'S CHRISTMAS ": 314,
+        "POPCORN HOLDER": 307,
+        "WHITE HANGING HEART T-LIGHT HOLDER": 306,
+        "HAND WARMER OWL DESIGN": 293,
+        "JUMBO BAG RED RETROSPOT": 288,
+        "GARDENERS KNEELING PAD KEEP CALM ": 283
+      },
+      "has_leading_trailing_spaces": "23716",
+      "has_special_characters": "7260"
+    },
+    "quantity": {
+      "data_type": "int64",
+      "non_null_count": "100000",
+      "null_count": "0",
+      "null_percentage": 0.0,
+      "unique_count": 362,
+      "unique_percentage": 0.362,
+      "min_value": -80995.0,
+      "max_value": 80995.0,
+      "mean": 8.69514,
+      "median": 3.0,
+      "std_dev": 363.7547912754719,
+      "quartiles": {
+        "q1": 1.0,
+        "q3": 10.0
+      },
+      "zero_count": "0",
+      "negative_count": "1455",
+      "positive_count": "98545",
+      "outlier_count": "9680",
+      "outlier_percentage": 9.68
+    },
+    "invoice_date": {
+      "data_type": "datetime64[ns]",
+      "non_null_count": "100000",
+      "null_count": "0",
+      "null_percentage": 0.0,
+      "unique_count": 3577,
+      "unique_percentage": 3.5770000000000004,
+      "min_date": "2011-11-03T14:17:00",
+      "max_date": "2011-12-09T12:50:00",
+      "date_range_days": 35,
+      "unique_years": 1,
+      "unique_months": 2,
+      "unique_days": 27,
+      "unique_hours": 14,
+      "weekend_transactions": "13972",
+      "business_hours_transactions": "95909"
+    },
+    "unit_price": {
+      "data_type": "float64",
+      "non_null_count": "100000",
+      "null_count": "0",
+      "null_percentage": 0.0,
+      "unique_count": 386,
+      "unique_percentage": 0.386,
+      "min_value": 0.0,
+      "max_value": 17836.46,
+      "mean": 4.2554769,
+      "median": 2.08,
+      "std_dev": 79.3088353041459,
+      "quartiles": {
+        "q1": 1.25,
+        "q3": 4.13
+      },
+      "zero_count": "268",
+      "negative_count": "0",
+      "positive_count": "99732",
+      "outlier_count": "6290",
+      "outlier_percentage": 6.29
+    },
+    "customer_id": {
+      "data_type": "object",
+      "non_null_count": "75209",
+      "null_count": "24791",
+      "null_percentage": 24.791,
+      "unique_count": 1855,
+      "unique_percentage": 1.855,
+      "avg_length": 7.0,
+      "min_length": 7.0,
+      "max_length": 7.0,
+      "empty_string_count": "0",
+      "whitespace_only_count": "0",
+      "top_values": {
+        "14096.0": 2428,
+        "17841.0": 1653,
+        "12748.0": 1623,
+        "14911.0": 1153,
+        "16549.0": 502,
+        "13521.0": 418,
+        "14606.0": 358,
+        "14456.0": 319,
+        "15993.0": 314,
+        "15311.0": 299
+      },
+      "has_leading_trailing_spaces": "0",
+      "has_special_characters": "75209"
+    },
+    "country": {
+      "data_type": "object",
+      "non_null_count": "100000",
+      "null_count": "0",
+      "null_percentage": 0.0,
+      "unique_count": 27,
+      "unique_percentage": 0.027,
+      "avg_length": 13.46196,
+      "min_length": "3",
+      "max_length": "15",
+      "empty_string_count": "0",
+      "whitespace_only_count": "0",
+      "top_values": {
+        "United Kingdom": 92956,
+        "France": 1674,
+        "Germany": 1416,
+        "EIRE": 1328,
+        "Spain": 383,
+        "Belgium": 345,
+        "Netherlands": 242,
+        "Portugal": 233,
+        "Switzerland": 226,
+        "Norway": 200
+      },
+      "has_leading_trailing_spaces": "0",
+      "has_special_characters": "0"
+    }
+  },
+  "data_quality_assessment": {
+    "overall_score": 99.17083333333333,
+    "completeness_score": 97.5125,
+    "validity_score": 100.0,
+    "consistency_score": 100,
+    "issues": [],
+    "severity_counts": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    }
+  },
+  "business_insights": {
+    "revenue_analysis": {
+      "total_revenue": 1737451.46,
+      "average_transaction_value": 17.3745146,
+      "median_transaction_value": 8.25,
+      "highest_single_transaction": 168469.6,
+      "negative_revenue_transactions": "1307"
+    },
+    "customer_analysis": {
+      "total_customers": 1855,
+      "transactions_with_customer_id": 75209,
+      "anonymous_transactions": "24791",
+      "customer_id_coverage": 75.209,
+      "avg_transactions_per_customer": 40.543935309973044,
+      "max_transactions_by_single_customer": "2428",
+      "repeat_customers": "1796"
+    },
+    "geographic_analysis": {
+      "total_countries": 27,
+      "top_countries": {
+        "United Kingdom": 92956,
+        "France": 1674,
+        "Germany": 1416,
+        "EIRE": 1328,
+        "Spain": 383,
+        "Belgium": 345,
+        "Netherlands": 242,
+        "Portugal": 233,
+        "Switzerland": 226,
+        "Norway": 200
+      },
+      "uk_transactions": "92956",
+      "international_transactions": "7044"
+    },
+    "product_analysis": {
+      "total_products": 3005,
+      "most_popular_products": {
+        "23084": 582,
+        "22086": 486,
+        "23355": 359,
+        "22910": 345,
+        "23344": 314,
+        "22197": 307,
+        "85123A": 303,
+        "22865": 293,
+        "85099B": 288,
+        "23301": 283
+      },
+      "single_transaction_products": "261"
+    },
+    "temporal_analysis": {
+      "peak_hours": {
+        "15": 15629,
+        "12": 14643,
+        "13": 12182,
+        "16": 11034,
+        "14": 10892
+      },
+      "busiest_days": {
+        "Thursday": 19443,
+        "Tuesday": 18871,
+        "Monday": 17068,
+        "Wednesday": 16197,
+        "Friday": 14449,
+        "Sunday": 13972
+      },
+      "seasonal_patterns": {
+        "November": 74754,
+        "December": 25246
+      },
+      "weekend_vs_weekday": {
+        "weekend_transactions": "13972",
+        "weekday_transactions": "86028"
+      }
+    }
+  },
+  "recommendations": [
+    {
+      "category": "Data Quality",
+      "priority": "High",
+      "issue": "High null rates in columns: customer_id",
+      "recommendation": "Investigate data sources and implement validation at ingestion point"
+    },
+    {
+      "category": "Customer Analytics",
+      "priority": "Medium",
+      "issue": "24.8% of transactions lack customer IDs",
+      "recommendation": "Improve customer identification processes for better analytics"
+    }
+  ]
+}

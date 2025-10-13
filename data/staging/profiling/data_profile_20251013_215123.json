@@ -1,0 +1,353 @@
+{
+  "profile_timestamp": "2025-10-13T21:51:20.069827",
+  "dataset_overview": {
+    "total_records": 536639,
+    "total_columns": 10,
+    "memory_usage_mb": 209.27791118621826,
+    "date_range": {
+      "min_date": "2010-12-01T08:26:00",
+      "max_date": "2011-12-09T12:50:00",
+      "date_span_days": 373
+    },
+    "unique_counts": {
+      "invoices": 25900,
+      "products": 4070,
+      "customers": 4372,
+      "countries": 38
+    },
+    "data_freshness": {
+      "latest_load": "2025-10-13T20:58:26.276072",
+      "oldest_load": "2025-10-13T20:58:26.276072"
+    }
+  },
+  "column_profiles": {
+    "invoice": {
+      "data_type": "object",
+      "non_null_count": "536639",
+      "null_count": "0",
+      "null_percentage": 0.0,
+      "unique_count": 25900,
+      "unique_percentage": 4.826335767620319,
+      "avg_length": 6.0172443672562,
+      "min_length": "6",
+      "max_length": "7",
+      "empty_string_count": "0",
+      "whitespace_only_count": "0",
+      "top_values": {
+        "573585": 1114,
+        "581219": 749,
+        "581492": 731,
+        "580729": 721,
+        "558475": 705,
+        "579777": 687,
+        "581217": 676,
+        "537434": 675,
+        "580730": 662,
+        "538071": 652
+      },
+      "has_leading_trailing_spaces": "0",
+      "has_special_characters": "0"
+    },
+    "stock_code": {
+      "data_type": "object",
+      "non_null_count": "536639",
+      "null_count": "0",
+      "null_percentage": 0.0,
+      "unique_count": 4070,
+      "unique_percentage": 0.7584241920546214,
+      "avg_length": 5.087034300526052,
+      "min_length": "1",
+      "max_length": "12",
+      "empty_string_count": "0",
+      "whitespace_only_count": "0",
+      "top_values": {
+        "85123A": 2301,
+        "22423": 2192,
+        "85099B": 2156,
+        "47566": 1720,
+        "20725": 1626,
+        "84879": 1489,
+        "22720": 1469,
+        "22197": 1468,
+        "21212": 1367,
+        "22383": 1328
+      },
+      "has_leading_trailing_spaces": "0",
+      "has_special_characters": "0"
+    },
+    "description": {
+      "data_type": "object",
+      "non_null_count": "535185",
+      "null_count": "1454",
+      "null_percentage": 0.270945645023936,
+      "unique_count": 4223,
+      "unique_percentage": 0.7869349786355445,
+      "avg_length": 26.638050393789065,
+      "min_length": 1.0,
+      "max_length": 35.0,
+      "empty_string_count": "0",
+      "whitespace_only_count": "0",
+      "top_values": {
+        "WHITE HANGING HEART T-LIGHT HOLDER": 2357,
+        "REGENCY CAKESTAND 3 TIER": 2189,
+        "JUMBO BAG RED RETROSPOT": 2156,
+        "PARTY BUNTING": 1720,
+        "LUNCH BAG RED RETROSPOT": 1625,
+        "ASSORTED COLOUR BIRD ORNAMENT": 1488,
+        "SET OF 3 CAKE TINS PANTRY DESIGN ": 1465,
+        "PACK OF 72 RETROSPOT CAKE CASES": 1367,
+        "LUNCH BAG  BLACK SKULL.": 1323,
+        "NATURAL SLATE HEART CHALKBOARD ": 1272
+      },
+      "has_leading_trailing_spaces": "112370",
+      "has_special_characters": "38545"
+    },
+    "quantity": {
+      "data_type": "int64",
+      "non_null_count": "536639",
+      "null_count": "0",
+      "null_percentage": 0.0,
+      "unique_count": 722,
+      "unique_percentage": 0.13454109746030385,
+      "min_value": -80995.0,
+      "max_value": 80995.0,
+      "mean": 9.61950025995129,
+      "median": 3.0,
+      "std_dev": 219.1302057573712,
+      "quartiles": {
+        "q1": 1.0,
+        "q3": 10.0
+      },
+      "zero_count": "0",
+      "negative_count": "10587",
+      "positive_count": "526052",
+      "outlier_count": "58500",
+      "outlier_percentage": 10.901183104470604
+    },
+    "invoice_date": {
+      "data_type": "datetime64[ns]",
+      "non_null_count": "536639",
+      "null_count": "0",
+      "null_percentage": 0.0,
+      "unique_count": 23260,
+      "unique_percentage": 4.334384940341645,
+      "min_date": "2010-12-01T08:26:00",
+      "max_date": "2011-12-09T12:50:00",
+      "date_range_days": 373,
+      "unique_years": 2,
+      "unique_months": 12,
+      "unique_days": 31,
+      "unique_hours": 15,
+      "weekend_transactions": "62805",
+      "business_hours_transactions": "514904"
+    },
+    "unit_price": {
+      "data_type": "float64",
+      "non_null_count": "536639",
+      "null_count": "0",
+      "null_percentage": 0.0,
+      "unique_count": 1630,
+      "unique_percentage": 0.30374236684251427,
+      "min_value": -11062.06,
+      "max_value": 38970.0,
+      "mean": 4.632660380628319,
+      "median": 2.08,
+      "std_dev": 97.23329874860931,
+      "quartiles": {
+        "q1": 1.25,
+        "q3": 4.13
+      },
+      "zero_count": "2510",
+      "negative_count": "2",
+      "positive_count": "534127",
+      "outlier_count": "39450",
+      "outlier_percentage": 7.351310657630177
+    },
+    "customer_id": {
+      "data_type": "object",
+      "non_null_count": "401602",
+      "null_count": "135037",
+      "null_percentage": 25.163471160314476,
+      "unique_count": 4372,
+      "unique_percentage": 0.8147003851751364,
+      "avg_length": 7.0,
+      "min_length": 7.0,
+      "max_length": 7.0,
+      "empty_string_count": "0",
+      "whitespace_only_count": "0",
+      "top_values": {
+        "17841.0": 7812,
+        "14911.0": 5898,
+        "14096.0": 5128,
+        "12748.0": 4459,
+        "14606.0": 2759,
+        "15311.0": 2478,
+        "14646.0": 2085,
+        "13089.0": 1853,
+        "13263.0": 1667,
+        "14298.0": 1640
+      },
+      "has_leading_trailing_spaces": "0",
+      "has_special_characters": "401602"
+    },
+    "country": {
+      "data_type": "object",
+      "non_null_count": "536639",
+      "null_count": "0",
+      "null_percentage": 0.0,
+      "unique_count": 38,
+      "unique_percentage": 0.007081110392647571,
+      "avg_length": 13.371255164086099,
+      "min_length": "3",
+      "max_length": "20",
+      "empty_string_count": "0",
+      "whitespace_only_count": "0",
+      "top_values": {
+        "United Kingdom": 490298,
+        "Germany": 9480,
+        "France": 8541,
+        "EIRE": 8184,
+        "Spain": 2528,
+        "Netherlands": 2371,
+        "Belgium": 2069,
+        "Switzerland": 1994,
+        "Portugal": 1510,
+        "Australia": 1258
+      },
+      "has_leading_trailing_spaces": "0",
+      "has_special_characters": "0"
+    }
+  },
+  "data_quality_assessment": {
+    "overall_score": 99.15212399148527,
+    "completeness_score": 97.45655831946615,
+    "validity_score": 99.99981365498967,
+    "consistency_score": 100,
+    "issues": [
+      {
+        "type": "validity",
+        "severity": "high",
+        "column": "unit_price",
+        "description": "Found 2 records with negative prices"
+      }
+    ],
+    "severity_counts": {
+      "critical": 0,
+      "high": 1,
+      "medium": 0,
+      "low": 0
+    }
+  },
+  "business_insights": {
+    "revenue_analysis": {
+      "total_revenue": 9725455.104,
+      "average_transaction_value": 18.122900318463625,
+      "median_transaction_value": 9.870000000000001,
+      "highest_single_transaction": 168469.6,
+      "negative_revenue_transactions": "9253"
+    },
+    "customer_analysis": {
+      "total_customers": 4372,
+      "transactions_with_customer_id": 401602,
+      "anonymous_transactions": "135037",
+      "customer_id_coverage": 74.83652883968553,
+      "avg_transactions_per_customer": 91.85773101555353,
+      "max_transactions_by_single_customer": "7812",
+      "repeat_customers": "4293"
+    },
+    "geographic_analysis": {
+      "total_countries": 38,
+      "top_countries": {
+        "United Kingdom": 490298,
+        "Germany": 9480,
+        "France": 8541,
+        "EIRE": 8184,
+        "Spain": 2528,
+        "Netherlands": 2371,
+        "Belgium": 2069,
+        "Switzerland": 1994,
+        "Portugal": 1510,
+        "Australia": 1258
+      },
+      "uk_transactions": "490298",
+      "international_transactions": "46341"
+    },
+    "product_analysis": {
+      "total_products": 4070,
+      "most_popular_products": {
+        "85123A": 2301,
+        "22423": 2192,
+        "85099B": 2156,
+        "47566": 1720,
+        "20725": 1626,
+        "84879": 1489,
+        "22720": 1469,
+        "22197": 1468,
+        "21212": 1367,
+        "22383": 1328
+      },
+      "single_transaction_products": "233"
+    },
+    "temporal_analysis": {
+      "peak_hours": {
+        "12": 77573,
+        "15": 76938,
+        "13": 71246,
+        "14": 66572,
+        "11": 56948
+      },
+      "busiest_days": {
+        "Thursday": 103056,
+        "Tuesday": 101064,
+        "Monday": 94435,
+        "Wednesday": 93714,
+        "Friday": 81565,
+        "Sunday": 62805
+      },
+      "seasonal_patterns": {
+        "November": 83342,
+        "December": 67227,
+        "October": 59969,
+        "September": 49861,
+        "July": 39267,
+        "May": 36781,
+        "June": 36609,
+        "March": 36439,
+        "August": 35064,
+        "January": 34900,
+        "April": 29701,
+        "February": 27479
+      },
+      "weekend_vs_weekday": {
+        "weekend_transactions": "62805",
+        "weekday_transactions": "473834"
+      }
+    }
+  },
+  "recommendations": [
+    {
+      "category": "Data Quality",
+      "priority": "High",
+      "issue": "High null rates in columns: customer_id",
+      "recommendation": "Investigate data sources and implement validation at ingestion point"
+    },
+    {
+      "category": "Business Rules",
+      "priority": "Critical",
+      "issue": "Negative unit prices detected",
+      "recommendation": "Implement price validation constraints and investigate source system"
+    },
+    {
+      "category": "Customer Analytics",
+      "priority": "Medium",
+      "issue": "25.2% of transactions lack customer IDs",
+      "recommendation": "Improve customer identification processes for better analytics"
+    },
+    {
+      "category": "Performance",
+      "priority": "Medium",
+      "issue": "Large dataset detected",
+      "recommendation": "Consider implementing data partitioning and archiving strategies"
+    }
+  ]
+}
