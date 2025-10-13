@@ -1,0 +1,6 @@
+# Create .gitkeep files for empty directories
+touch data/raw/.gitkeep
+touch data/staging/.gitkeep
+touch data/warehouse/.gitkeep
+touch logs/.gitkeep
+touch tests/.gitkeep
