@@ -1,0 +1,75 @@
+name: 'retail_transform'
+version: '1.0.0'
+config-version: 2
+
+profile: 'retail_transform'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+models:
+  retail_transform:
+    +persist_docs:
+      relation: true
+      columns: true
+
+    # =========================================================================
+    # STAGING MODELS - Bronze to Silver transformation
+    # =========================================================================
+    staging:
+      +materialized: view
+      +schema: silver
+      +tags:
+        - "staging"
+        - "silver_layer"
+
+    # =========================================================================
+    # INTERMEDIATE MODELS - Complex transformations
+    # =========================================================================
+    intermediate:
+      +materialized: ephemeral
+      +schema: silver
+      #+schema: "{{ target.schema }}"
+      +tags:
+        - "intermediate"
+        - "silver_layer"
+
+    # =========================================================================
+    # MARTS MODELS - Gold layer dimensional models
+    # =========================================================================
+    marts:
+      +materialized: table
+      +schema: gold  
+      +tags:
+        - "marts"
+        - "gold_layer"
+      
+      core:
+        +tags:
+          - "core"
+          - "critical"
+      
+      marketing:
+        +tags:
+          - "marketing"
+          - "analytics"
+      
+      finance:
+        +tags:
+          - "finance"
+          - "reporting"
+
+seeds:
+  retail_transform:
+    +schema: seeds
+    +tags:
+      - "reference_data"
+
+tests:
+  retail_transform:
+    +store_failures: true
+    +schema: test_results

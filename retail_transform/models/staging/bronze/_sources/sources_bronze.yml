@@ -1,0 +1,148 @@
+# ============================================================================
+# BRONZE LAYER SOURCE DEFINITIONS
+# ============================================================================
+# This file defines the bronze layer source tables that staging models
+# will reference. Sources enable:
+#   1. Lineage tracking from raw data to transformed models
+#   2. Data freshness monitoring
+#   3. Documentation of source systems
+#   4. Centralized metadata management
+# ============================================================================
+
+version: 2
+
+sources:
+  # ==========================================================================
+  # BRONZE SCHEMA - Raw ingested data
+  # ==========================================================================
+  - name: bronze
+    description: >
+      Bronze layer containing raw data ingested from UCI Online Retail dataset.
+      This layer preserves source data exactly as received with added metadata
+      for lineage tracking and auditing.
+    
+    database: online_retail_dev  # Database name
+    schema: bronze               # Schema name
+    
+    # Freshness checks: Alert if data is stale
+    freshness:
+      #warn_after: {count: 24, period: hour}
+      #error_after: {count: 48, period: hour}
+      warn_after: {count: 30, period: day}
+      error_after: {count: 60, period: day}
+
+    
+    # Metadata about the source system
+    loader: python_ingestion_pipeline
+    loaded_at_field: created_at
+    
+    tables:
+      # ======================================================================
+      # online_retail_raw - Raw transaction data
+      # ======================================================================
+      - name: online_retail_raw
+        description: >
+          Raw transaction data from UCI Online Retail II dataset containing
+          invoice-level details for a UK-based online retailer.
+          
+          **Source System**: UCI Machine Learning Repository
+          **Granularity**: One row per invoice line item
+          **Load Frequency**: Batch (historical data)
+          **Records**: 1,000,000+
+        
+        # Freshness override for this specific table
+        freshness:
+          warn_after: {count: 7, period: day}
+          error_after: {count: 14, period: day}
+        
+        # Column-level documentation
+        columns:
+          - name: bronze_id
+            description: "Surrogate key generated during bronze ingestion"
+            tests:
+              - unique
+              - not_null
+          
+          - name: invoice
+            description: "Invoice number (6-digit unique identifier per transaction)"
+            tests:
+              - not_null
+          
+          - name: stock_code
+            description: "Product/item code (unique per product)"
+            tests:
+              - not_null
+          
+          - name: description
+            description: "Product name/description"
+          
+          - name: quantity
+            description: "Quantity of items purchased (negative values indicate returns)"
+          
+          - name: invoice_date
+            description: "Date and time of invoice generation"
+            tests:
+              - not_null
+          
+          - name: unit_price
+            description: "Product price per unit in GBP"
+          
+          - name: customer_id
+            description: "Unique customer identifier (can be null for non-registered customers)"
+          
+          - name: country
+            description: "Country where customer resides"
+            tests:
+              - not_null
+          
+          # Metadata columns
+          - name: source_file_name
+            description: "Original source filename for data lineage"
+            tests:
+              - not_null
+          
+          - name: source_file_path
+            description: "Full path to source file"
+          
+          - name: load_timestamp
+            description: "Timestamp when record was loaded into bronze"
+            tests:
+              - not_null
+          
+          - name: load_batch_id
+            description: "Unique batch identifier for this ingestion run"
+            tests:
+              - not_null
+          
+          - name: record_hash
+            description: "MD5 hash of source data for duplicate detection"
+      
+      # ======================================================================
+      # ingestion_log - ETL job tracking
+      # ======================================================================
+      - name: ingestion_log
+        description: >
+          Log of all bronze layer ingestion jobs, tracking execution status,
+          performance metrics, and error details.
+        
+        columns:
+          - name: batch_id
+            description: "Unique identifier for ingestion batch"
+            tests:
+              - unique
+              - not_null
+          
+          - name: status
+            description: "Job status (STARTED, SUCCESS, FAILED, RUNNING)"
+            tests:
+              - accepted_values:
+                  values: ['STARTED', 'SUCCESS', 'FAILED', 'RUNNING']
+          
+          - name: records_processed
+            description: "Total number of records processed in this batch"
+          
+          - name: records_inserted
+            description: "Number of records successfully inserted"
+          
+          - name: ingestion_duration_seconds
+            description: "Total execution time in seconds"

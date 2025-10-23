@@ -1,0 +1,99 @@
+version: 2
+
+models:
+  - name: stg_bronze__online_retail
+    description: >
+      Staging model that transforms raw bronze layer data into clean, 
+      typed, and validated format. This is the foundational model for all
+      downstream silver and gold transformations.
+      
+      **Data Quality Rules Applied:**
+      - Type casting with error handling
+      - Removal of records with null required fields
+      - Removal of zero-quantity records
+      - Calculation of derived fields (line_total, temporal attributes)
+      
+      **Downstream Usage:**
+      - Input for intermediate transaction models
+      - Base for customer segmentation
+      - Foundation for product analytics
+    
+    config:
+      tags: ['staging', 'critical', 'daily']
+    
+    columns:
+      - name: bronze_id
+        description: "Unique identifier from bronze layer for lineage tracking"
+        tests:
+          - unique
+          - not_null
+      
+      - name: invoice_number
+        description: "Invoice identifier (unique per transaction, format: 6 digits or 'C' prefix for cancellations)"
+        tests:
+          - not_null
+      
+      - name: stock_code
+        description: "Unique product/SKU identifier"
+        tests:
+          - not_null
+      
+      - name: product_description
+        description: "Product name and description"
+      
+      - name: quantity
+        description: "Number of units (negative = returns, positive = sales)"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: -10000
+                max_value: 10000
+      
+      - name: unit_price
+        description: "Price per unit in GBP"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                max_value: 50000
+                inclusive: true
+      
+      - name: invoice_timestamp
+        description: "Date and time of invoice generation"
+        tests:
+          - not_null
+      
+      - name: invoice_date
+        description: "Date portion of invoice timestamp"
+        tests:
+          - not_null
+      
+      - name: customer_id
+        description: "Customer identifier (null for guest transactions)"
+      
+      - name: country
+        description: "Customer's country"
+        tests:
+          - not_null
+      
+      - name: line_total
+        description: "Calculated: quantity × unit_price"
+        tests:
+          - not_null
+      
+      - name: is_return
+        description: "Boolean flag: TRUE if quantity < 0"
+      
+      - name: is_cancelled
+        description: "Boolean flag: TRUE if invoice starts with 'C'"
+      
+      - name: is_complete_record
+        description: "Boolean flag: TRUE if all required fields are populated"
+      
+      - name: has_customer_id
+        description: "Boolean flag: TRUE if customer_id is not null"
+      
+      - name: is_valid_transaction
+        description: "Boolean flag: TRUE if quantity > 0 and unit_price > 0"
